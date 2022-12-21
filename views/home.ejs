@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs'); -%>
+<h1>Hello</h1>
+
+<p> <%= para_content %></p>
+
+<% console.log(post_data)  %>
+
+<!-- <% for(i=0 ; i< post_data.length ; i++){ %>
+    
+ <% console.log(post_data[i].title)  %>
+
+<% } %> -->
+
+<% post_data.forEach(function(post){   %>
+    <%  var sliced=post.post.substring(0,100);  %>
+    <% var title =post.title  %>
+    <h1><%=  post.title   %></h1>
+    <p><%=  sliced + "..."  %> <a href="/posts/<%= title %>">Read more</a></p>
+  
+<% }) %>
+
+<%- include('partials/footer.ejs') -%>    
